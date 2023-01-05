@@ -6,7 +6,8 @@ export default {
   modules: [
     '@nuxtjs/axios',
     ['nuxt-mail', {
-      smtp: JSON.parse(process.env.MAIL_CONFIG),
+      smtp: JSON.parse(process.env.MAIL_CONFIG || ''),
+      message: { to: 'me@gmail.com' },
     }],
   ],
 }

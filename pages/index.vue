@@ -20,7 +20,6 @@ export default {
         from: this.email,
         subject: 'Contact form message',
         text: this.message,
-        to: 'me@gmail.com',
       })
     }
   }
