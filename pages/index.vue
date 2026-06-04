@@ -8,20 +8,15 @@
   </form>
 </template>
 
-<script>
-export default {
-  data: () => ({
-    email: '',
-    message: '',
-  }),
-  methods: {
-    send() {
-      this.$mail.send({
-        from: this.email,
-        subject: 'Contact form message',
-        text: this.message,
-      })
-    }
-  }
-}
+<script setup lang="ts">
+const email = ref('');
+const message = ref('');
+
+const mail = useMail();
+
+const send = () => mail.send({
+  from: email.value,
+  subject: 'Contact form message',
+  text: message.value,
+})
 </script>

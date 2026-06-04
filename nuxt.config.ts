@@ -2,12 +2,13 @@ import dotenv from '@dword-design/dotenv-json-extended'
 
 dotenv.config()
 
-export default {
+const mailConfig = process.env.MAIL_CONFIG!;
+
+export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/axios',
     ['nuxt-mail', {
-      smtp: JSON.parse(process.env.MAIL_CONFIG || ''),
+      smtp: JSON.parse(mailConfig),
       message: { to: 'me@gmail.com' },
     }],
   ],
-}
+});
